@@ -1,0 +1,46 @@
+feeder: dataset.dataloader_video.BaseFeeder
+phase: train
+dataset: phoenix2014  #phoenix2014, CSL-Daily, CSL, phoenix2014-T
+# dataset: phoenix14-si5
+num_epoch: 80
+python_evaluate: False
+work_dir: ./work_dir/baseline_res18/
+batch_size: 2
+random_seed: 0
+test_batch_size: 2
+num_worker: 8
+device: 0,1,2
+log_interval: 200
+eval_interval: 1
+save_interval: 5
+loss_weights:
+  ConvCTC: 1.0
+  SeqCTC: 1.0
+  Dist: 25.0
+# load_weights: ./slt_baseline/baseline_p14_framewise_biCTC/dev_21.90_epoch55_model.pt
+
+optimizer_args:
+  optimizer: Adam
+  base_lr: 0.0001
+  step: [ 40, 60]
+  learning_ratio: 1
+  weight_decay: 0.0001
+  start_epoch: 0
+  nesterov: False
+
+feeder_args:
+  mode: 'train'
+  datatype: 'video'
+  num_gloss: -1
+  drop_ratio: 1.0
+  frame_interval: 1
+  image_scale: 1.0  # 0-1 represents ratio, >1 represents absolute value
+  input_size: 224
+
+model: slr_network.SLRModel
+decode_mode: beam
+model_args:
+  num_classes: 1296
+  c2d_type: resnet18 #resnet18, mobilenet_v2, squeezenet1_1, shufflenet_v2_x1_0, efficientnet_b1, mnasnet1_0, regnet_y_800mf, vgg16_bn, vgg11_bn, regnet_x_800mf, regnet_x_400mf, densenet121, regnet_y_1_6gf
+  conv_type: 2
+  use_bn: 1
