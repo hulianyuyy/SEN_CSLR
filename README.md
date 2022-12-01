@@ -1,5 +1,5 @@
 # SEN_CSLR
-This repo holds codes of the paper: Self-Emphasizing Network for Continuous Sign Language Recognition.(AAAI 2023) [[paper]](https://arxiv.org/abs/2104.02330)
+This repo holds codes of the paper: Self-Emphasizing Network for Continuous Sign Language Recognition.(AAAI 2023) [[paper]](https://arxiv.org/abs/2211.17081)
 
 This repo is based on [VAC (ICCV 2021)](https://openaccess.thecvf.com/content/ICCV2021/html/Min_Visual_Alignment_Constraint_for_Continuous_Sign_Language_Recognition_ICCV_2021_paper.html). Many thanks for their great work!
 
@@ -83,21 +83,21 @@ You can choose any one of following datasets to verify the effectiveness of SEN.
 | Backbone | Dev WER  | Test WER  | Pretrained model                                             |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 21.2%      | 22.3%       |  --- | 
-| ResNet18 | 19.7%      | 20.8%       | [[Baidu]](https://pan.baidu.com/s/1QRws8gylNzlpXvU52VCLww) (passwd: tsa2)<br />[[Google Drive]](https://drive.google.com/file/d/1uCIYCz0O7twKG1k_BE9sZ5Q1hga4DXRI/view?usp=sharing) |
+| ResNet18 | 19.5%      | 21.0%       | [[Baidu]](https://pan.baidu.com/s/1EcvdftTPwP6stbgB7C0v3Q) (passwd: jnii)<br />[[Google Drive]]() |
 
 ### PHOENIX2014-T dataset
 
 | Backbone | Dev WER  | Test WER  | Pretrained model                                             |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 21.1%      | 22.8%       |  --- | 
-| ResNet18 | 19.4%      | 21.2%       | [[Baidu]](https://pan.baidu.com/s/1o8IvZhFuTWM9pZI1U8Y2YQ) (passwd: c6cq)<br />[[Google Drive]](https://drive.google.com/file/d/1xFv0ttMQdU6SMvncEnHT0OT6osUCSXVK/view?usp=sharing) |
+| ResNet18 | 19.3%      | 20.7%       | [[Baidu]](https://pan.baidu.com/s/1_k6OML-exuQZO8sDzuD-5A) (passwd: kqhx)<br />[[Google Drive]]() |
 
 ### CSL-Daily dataset
 
 | Backbone | Dev WER  | Test WER  | Pretrained model                                            |
 | -------- | ---------- | ----------- | --- |
-| Baseline | 21.1%      | 22.8%       |  --- | 
-| ResNet18 | 19.4%      | 21.2%       | [[Baidu]](https://pan.baidu.com/s/1o8IvZhFuTWM9pZI1U8Y2YQ) (passwd: c6cq)<br />[[Google Drive]](https://drive.google.com/file/d/1xFv0ttMQdU6SMvncEnHT0OT6osUCSXVK/view?usp=sharing) |
+| Baseline | 32.8%      | 32.3%       |  --- | 
+| ResNet18 | 31.1%      | 30.7%       | [[Baidu]](https://pan.baidu.com/s/1bARLXmEC-PlHdVU8BGx_7Q) (passwd: xkhu)<br />[[Google Drive]]() |
 
 ​	To evaluate the pretrained model, run the command below：   
 `python main.py --device your_device --load-weights path_to_weight.pt --phase test`
@@ -115,11 +115,10 @@ Note that you can choose the target dataset from phoenix2014/phoenix2014-T/CSL/C
 If you find this repo useful in your research works, please consider citing:
 
 ```latex
-@inproceedings{hu2022temporal,
-  title={Temporal Lift Pooling for Continuous Sign Language Recognition},
+@inproceedings{hu2023self,
+  title={Self-Emphasizing Network for Continuous Sign Language Recognition},
   author={Lianyu Hu, Liqing Gao, Zekang Liu and Wei Feng},
-  booktitle={European conference on computer vision},
-  year={2022},
-  organization={Springer}
+  booktitle={Thirty-seventh AAAI conference on artificial intelligence},
+  year={2023},
 }
 ```
