@@ -84,21 +84,21 @@ You can choose any one of following datasets to verify the effectiveness of SEN.
 | Backbone | Dev WER  | Test WER  | Pretrained model                                             |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 21.2%      | 22.3%       |  --- | 
-| ResNet18 | 19.5%      | 21.0%       | [[Baidu]](https://pan.baidu.com/s/1EcvdftTPwP6stbgB7C0v3Q) (passwd: jnii)<br />[[Google Drive]]() |
+| ResNet18 | 19.5%      | 21.0%       | [[Baidu]](https://pan.baidu.com/s/1EcvdftTPwP6stbgB7C0v3Q) (passwd: jnii)<br />[[Google Drive]](https://drive.google.com/file/d/15k17Cz5oc36bNNSfmmTDpvtSJgr1gYOo/view?usp=share_link) |
 
 ### PHOENIX2014-T dataset
 
 | Backbone | Dev WER  | Test WER  | Pretrained model                                             |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 21.1%      | 22.8%       |  --- | 
-| ResNet18 | 19.3%      | 20.7%       | [[Baidu]](https://pan.baidu.com/s/1_k6OML-exuQZO8sDzuD-5A) (passwd: kqhx)<br />[[Google Drive]]() |
+| ResNet18 | 19.3%      | 20.7%       | [[Baidu]](https://pan.baidu.com/s/1_k6OML-exuQZO8sDzuD-5A) (passwd: kqhx)<br />[[Google Drive]](https://drive.google.com/file/d/1RnmtlmtssLbCPI3KyMoIIcJQbYy5xUrb/view?usp=share_link) |
 
 ### CSL-Daily dataset
 
 | Backbone | Dev WER  | Test WER  | Pretrained model                                            |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 32.8%      | 32.3%       |  --- | 
-| ResNet18 | 31.1%      | 30.7%       | [[Baidu]](https://pan.baidu.com/s/1bARLXmEC-PlHdVU8BGx_7Q) (passwd: xkhu)<br />[[Google Drive]]() |
+| ResNet18 | 31.1%      | 30.7%       | [[Baidu]](https://pan.baidu.com/s/1bARLXmEC-PlHdVU8BGx_7Q) (passwd: xkhu)<br />[[Google Drive]](https://drive.google.com/file/d/1uTbxI3fVM_66F8TCr0M8x5mWpi3FCz0W/view?usp=share_link) |
 
 ​	To evaluate the pretrained model, run the command below：   
 `python main.py --device your_device --load-weights path_to_weight.pt --phase test`
