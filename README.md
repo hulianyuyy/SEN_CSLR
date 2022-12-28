@@ -20,6 +20,8 @@ The implementation for the SSEM (line 47) and TSEM (line 23) is given in [./modu
 
 They are then equipped with the BasicBlock in ResNet in line 93 [./modules/resnet.py](https://github.com/hulianyuyy/SEN_CSLR/blob/main/modules/resnet.py).
 
+We later found that a multi-scale architecture could perform on par with what we report in the paper for TSEM, and thus implement it as such.
+
 ## Data Preparation
 You can choose any one of following datasets to verify the effectiveness of SEN.
 
