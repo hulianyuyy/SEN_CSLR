@@ -117,7 +117,7 @@ If you find this repo useful in your research works, please consider citing:
 ```latex
 @inproceedings{hu2023self,
   title={Self-Emphasizing Network for Continuous Sign Language Recognition},
-  author={Lianyu Hu, Liqing Gao, Zekang Liu and Wei Feng},
+  author={Hu, Lianyu and Gao, Liqing and Liu, Zekang and Feng, Wei},
   booktitle={Thirty-seventh AAAI conference on artificial intelligence},
   year={2023},
 }
