@@ -9,7 +9,8 @@ This repo is based on [VAC (ICCV 2021)](https://openaccess.thecvf.com/content/IC
 
 - ctcdecode==0.4 [[parlance/ctcdecode]](https://github.com/parlance/ctcdecode)，for beam search decode.
 
-- sclite [[kaldi-asr/kaldi]](https://github.com/kaldi-asr/kaldi), install kaldi tool to get sclite for evaluation. After installation, create a soft link toward the sclite:    
+- sclite [[kaldi-asr/kaldi]](https://github.com/kaldi-asr/kaldi), install kaldi tool to get sclite for evaluation. After installation, create a soft link toward the sclite: 
+  `mkdir ./software`
   `ln -s PATH_TO_KALDI/tools/sctk-2.4.10/bin/sclite ./software/sclite`
 
 - [SeanNaren/warp-ctc](https://github.com/SeanNaren/warp-ctc) for ctc supervision.
@@ -18,6 +19,8 @@ This repo is based on [VAC (ICCV 2021)](https://openaccess.thecvf.com/content/IC
 The implementation for the SSEM (line 47) and TSEM (line 23) is given in [./modules/resnet.py](https://github.com/hulianyuyy/SEN_CSLR/blob/main/modules/resnet.py).  
 
 They are then equipped with the BasicBlock in ResNet in line 93 [./modules/resnet.py](https://github.com/hulianyuyy/SEN_CSLR/blob/main/modules/resnet.py).
+
+We later found that a multi-scale architecture could perform on par with what we report in the paper for TSEM, and thus implement it as such.
 
 ## Data Preparation
 You can choose any one of following datasets to verify the effectiveness of SEN.
@@ -83,21 +86,21 @@ You can choose any one of following datasets to verify the effectiveness of SEN.
 | Backbone | Dev WER  | Test WER  | Pretrained model                                             |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 21.2%      | 22.3%       |  --- | 
-| ResNet18 | 19.5%      | 21.0%       | [[Baidu]](https://pan.baidu.com/s/1EcvdftTPwP6stbgB7C0v3Q) (passwd: jnii)<br />[[Google Drive]]() |
+| ResNet18 | 19.5%      | 21.0%       | [[Baidu]](https://pan.baidu.com/s/1EcvdftTPwP6stbgB7C0v3Q) (passwd: jnii)<br />[[Google Drive]](https://drive.google.com/file/d/15k17Cz5oc36bNNSfmmTDpvtSJgr1gYOo/view?usp=share_link) |
 
 ### PHOENIX2014-T dataset
 
 | Backbone | Dev WER  | Test WER  | Pretrained model                                             |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 21.1%      | 22.8%       |  --- | 
-| ResNet18 | 19.3%      | 20.7%       | [[Baidu]](https://pan.baidu.com/s/1_k6OML-exuQZO8sDzuD-5A) (passwd: kqhx)<br />[[Google Drive]]() |
+| ResNet18 | 19.3%      | 20.7%       | [[Baidu]](https://pan.baidu.com/s/1_k6OML-exuQZO8sDzuD-5A) (passwd: kqhx)<br />[[Google Drive]](https://drive.google.com/file/d/1RnmtlmtssLbCPI3KyMoIIcJQbYy5xUrb/view?usp=share_link) |
 
 ### CSL-Daily dataset
 
 | Backbone | Dev WER  | Test WER  | Pretrained model                                            |
 | -------- | ---------- | ----------- | --- |
 | Baseline | 32.8%      | 32.3%       |  --- | 
-| ResNet18 | 31.1%      | 30.7%       | [[Baidu]](https://pan.baidu.com/s/1bARLXmEC-PlHdVU8BGx_7Q) (passwd: xkhu)<br />[[Google Drive]]() |
+| ResNet18 | 31.1%      | 30.7%       | [[Baidu]](https://pan.baidu.com/s/1bARLXmEC-PlHdVU8BGx_7Q) (passwd: xkhu)<br />[[Google Drive]](https://drive.google.com/file/d/1uTbxI3fVM_66F8TCr0M8x5mWpi3FCz0W/view?usp=share_link) |
 
 ​	To evaluate the pretrained model, run the command below：   
 `python main.py --device your_device --load-weights path_to_weight.pt --phase test`
