@@ -11,15 +11,18 @@ import utils
 
 device_id = 0  # specify which gpu to use
 dataset = 'phoenix2014'
-video_path = 'path_to_your_video'  # please extract the video into images previouly
+video_path = 'path_to_your_video/*.jpg'  # please extract the video into images previouly. Fill in the path with image suffix (e.g., jpr or png). 
+# Example
+#video_path = '/disk2/dataset/german_dataset/phoenix2014-release/phoenix-2014-multisigner/features/fullFrame-256x256px/dev/01April_2010_Thursday_heute_default-1/1/*.png'
+
 model_weights = 'path_to_pretrained_weight.pt'
+
 
 # Load data and apply transformation
 dict_path = f'./preprocess/{dataset}/gloss_dict.npy'  # Use the gloss dict of phoenix14 dataset 
 gloss_dict = np.load(dict_path, allow_pickle=True).item()
 img_list = sorted(glob.glob(video_path))
 img_list = [cv2.cvtColor(cv2.imread(img_path), cv2.COLOR_BGR2RGB) for img_path in img_list]
-
 transform = video_augmentation.Compose([
                 video_augmentation.CenterCrop(224),
                 video_augmentation.Resize(1.0),
@@ -56,7 +59,7 @@ vid = torch.cat(
 device = utils.GpuDataParallel()
 device.set_device(device_id)
 # Define model and load state-dict
-model = SLRModel( num_classes=1296, c2d_type='resnet18', conv_type=2, use_bn=1, gloss_dict=None,
+model = SLRModel( num_classes=1296, c2d_type='resnet18', conv_type=2, use_bn=1, gloss_dict=gloss_dict,
             loss_weights={'ConvCTC': 1.0, 'SeqCTC': 1.0, 'Dist': 25.0},   )
 state_dict = torch.load(model_weights)['model_state_dict']
 state_dict = OrderedDict([(k.replace('.module', ''), v) for k, v in state_dict.items()])
@@ -69,4 +72,6 @@ model.eval()
 vid = device.data_to_device(vid)
 vid_lgt = device.data_to_device(video_length)
 ret_dict = model(vid, vid_lgt, label=None, label_lgt=None)
-print('output glosses : {}'.format(ret_dict['pred']))
+print('output glosses : {}'.format(ret_dict['recognized_sents']))
+# Example 
+# output glosses : [[('ICH', 0), ('LUFT', 1), ('WETTER', 2), ('GERADE', 3), ('loc-SUEDWEST', 4), ('TEMPERATUR', 5), ('__PU__', 6), ('KUEHL', 7), ('SUED', 8), ('WARM', 9), ('ICH', 10), ('IX', 11)]]
